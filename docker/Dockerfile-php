@@ -26,5 +26,5 @@ RUN chmod +x /usr/local/bin/install-php-extensions && install-php-extensions pdo
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 RUN composer self-update
 RUN composer clear-cache
-COPY ../laravel /var/www/laravel
-WORKDIR /var/www/laravel/
+COPY ../src /var/www/src
+WORKDIR /var/www/src/

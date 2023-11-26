@@ -16,7 +16,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./laravel:/var/www/laravel
+      - ./src:/var/www/src
     networks:
       - laravel
 
@@ -26,6 +26,6 @@ services:
       dockerfile: docker/Dockerfile-php
     container_name: php
     volumes:
-      - ./laravel:/var/www/laravel
+      - ./src:/var/www/src
     networks:
       - laravel

@@ -1,0 +1,31 @@
+version: "3.9"
+
+networks:
+  laravel:
+    name: laravel
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile-nginx
+    depends_on:
+      - php
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./laravel:/var/www/laravel
+    networks:
+      - laravel
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile-php
+    container_name: php
+    volumes:
+      - ./laravel:/var/www/laravel
+    networks:
+      - laravel

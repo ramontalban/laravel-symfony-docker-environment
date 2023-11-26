@@ -1,8 +1,8 @@
 version: "3.9"
 
 networks:
-  laravel:
-    name: laravel
+  work:
+    name: work
 
 services:
   nginx:
@@ -18,7 +18,7 @@ services:
     volumes:
       - ./src:/var/www/src
     networks:
-      - laravel
+      - work
 
   php:
     build:
@@ -28,4 +28,4 @@ services:
     volumes:
       - ./src:/var/www/src
     networks:
-      - laravel
+      - work
